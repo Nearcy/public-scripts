@@ -1,5 +1,28 @@
+
 import pyautogui
 import time
+import requests
+import subprocess
+
+def fetch_image(filename):
+    url = f"https://raw.githubusercontent.com/Nearcy/public-scripts/main/pictures/{filename}"
+    img_data = requests.get(url).content
+    with open(filename, "wb") as f:
+        f.write(img_data)
+
+images = [
+    "ss1.png","ss2.png","ss3.png",
+    "earntask1.png","earntask2.png","earntask3.png",
+    "detect1.png","detect2.png",
+    "losestreak.png","earnup.png",
+    "mode2.png","open.png"
+]
+
+for img in images:
+    fetch_image(img)
+
+# Setelah gambar diambil, jalankan script utama
+subprocess.run(["python3", "options.py"])
 
 def checker():
     try:
