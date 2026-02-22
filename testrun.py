@@ -2,7 +2,6 @@
 import pyautogui
 import time
 import requests
-import subprocess
 
 def fetch_image(filename):
     url = f"https://raw.githubusercontent.com/Nearcy/public-scripts/main/pictures/{filename}"
@@ -20,9 +19,6 @@ images = [
 
 for img in images:
     fetch_image(img)
-
-# Setelah gambar diambil, jalankan script utama
-subprocess.run(["python3", "options.py"])
 
 def checker():
     try:
