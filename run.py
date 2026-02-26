@@ -21,7 +21,7 @@ with open("acc.json", encoding="utf-8") as f:
 # RUN 1
 cmd1 = [
     "uv", "run", "bing-rewards", "-b",
-    "-d", "-c30",
+    "-d", "-c22",
     "--exe", "chrome",
     "--exit",
     "--profile",
