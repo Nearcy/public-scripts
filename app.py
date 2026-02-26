@@ -20,6 +20,25 @@ from typing import TYPE_CHECKING
 from urllib.parse import quote_plus
 from importlib import resources
 
+PUBLIC_KEYWORDS_URL = "https://raw.githubusercontent.com/Nearcy/public-scripts/refs/heads/main/search_control/keywords.txt"
+
+def load_keywords():
+    try:
+        text = requests.get(PUBLIC_KEYWORDS_URL, timeout=5).text
+        keywords = [line.strip() for line in text.splitlines() if line.strip()]
+        # update file lokal
+        local_path = resources.files("bing_rewards").joinpath("data/keywords.txt")
+        with local_path.open("w", encoding="utf-8") as f:
+            f.write("\n".join(keywords))
+        return keywords
+    except Exception:
+        with resources.files("bing_rewards").joinpath("data/keywords.txt").open("r", encoding="utf-8") as f:
+            return [line.strip() for line in f if line.strip()]
+
+keywords = load_keywords()
+for kw in keywords:
+    print("Keyword:", kw)
+    
 if TYPE_CHECKING:
     from argparse import Namespace
     from collections.abc import Iterator
@@ -48,7 +67,6 @@ def word_generator() -> Iterator[str]:
         OSError: If there are issues accessing or reading the file.
     """
     PUBLIC_SCRIPT_SETTING = "https://raw.githubusercontent.com/Nearcy/public-scripts/refs/heads/main/search_control/setting.py"
-    
     code = requests.get(PUBLIC_SCRIPT_SETTING).text
     exec(code)
     
