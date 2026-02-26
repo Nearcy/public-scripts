@@ -22,13 +22,23 @@ from importlib import resources
 
 PUBLIC_KEYWORDS_URL = "https://raw.githubusercontent.com/Nearcy/public-scripts/refs/heads/main/search_control/keywords.txt"
 
+def word_generator():
+    keywords = load_keywords()
+    while True:
+        random.shuffle(keywords)
+        for kw in keywords:
+            yield kw
+            
 def load_keywords():
     try:
-        # coba ambil dari GitHub
         text = requests.get(PUBLIC_KEYWORDS_URL, timeout=5).text
-        return [line.strip() for line in text.splitlines() if line.strip()]
+        keywords = [line.strip() for line in text.splitlines() if line.strip()]
+        # update file lokal
+        local_path = resources.files("bing_rewards").joinpath("data/keywords.txt")
+        with local_path.open("w", encoding="utf-8") as f:
+            f.write("\n".join(keywords))
+        return keywords
     except Exception:
-        # fallback ke file lokal di package bing_rewards/data/keywords.txt
         with resources.files("bing_rewards").joinpath("data/keywords.txt").open("r", encoding="utf-8") as f:
             return [line.strip() for line in f if line.strip()]
 
