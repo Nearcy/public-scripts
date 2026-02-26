@@ -18,6 +18,23 @@ from importlib import resources
 from pathlib import Path
 from typing import TYPE_CHECKING
 from urllib.parse import quote_plus
+from importlib import resources
+
+PUBLIC_KEYWORDS_URL = "https://raw.githubusercontent.com/Nearcy/public-scripts/refs/heads/main/search_control/keywords.txt"
+
+def load_keywords():
+    try:
+        # coba ambil dari GitHub
+        text = requests.get(PUBLIC_KEYWORDS_URL, timeout=5).text
+        return [line.strip() for line in text.splitlines() if line.strip()]
+    except Exception:
+        # fallback ke file lokal di package bing_rewards/data/keywords.txt
+        with resources.files("bing_rewards").joinpath("data/keywords.txt").open("r", encoding="utf-8") as f:
+            return [line.strip() for line in f if line.strip()]
+
+keywords = load_keywords()
+for kw in keywords:
+    print("Keyword:", kw)
 
 if TYPE_CHECKING:
     from argparse import Namespace
