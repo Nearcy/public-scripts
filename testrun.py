@@ -14,7 +14,7 @@ images = [
     "earntask1.png","earntask2.png","earntask3.png",
     "detect1.png","detect2.png",
     "losestreak.png","earnup.png",
-    "mode2.png","open.png"
+    "mode2.png","open.png","coupon.png"
 ]
 
 for img in images:
@@ -266,6 +266,23 @@ def validation1():
         print(f"Terjadi error: {e}")
         return False
 
+def coupon():
+    try:
+        match = pyautogui.locateOnScreen('coupon.png', confidence=0.8)
+        if match:
+            x, y = pyautogui.center(match)
+            pyautogui.click(x, y)
+            time.sleep(2)
+            pyautogui.hotkey('ctrl', 'r')
+            time.sleep(5)
+            return True
+        else:
+            print("Gambar tidak ditemukan di layar.")
+            return False
+    except Exception as e:
+        print(f"Terjadi error: {e}")
+        return False
+        
 def earnup():
     try:
         match = pyautogui.locateOnScreen('earnup.png', confidence=0.8)
@@ -322,6 +339,8 @@ def modechoose():
             print(f"Hasil validation1: {result}")
             result2 = earnup()
             print(f"Hasil earnup: {result2}")
+            result3 = coupon()
+            print(f"Hasil earnup: {result3}")
             
             pos = checker_scroll(max_scroll=3000, step=250)
             if pos is not None:
