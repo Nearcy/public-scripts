@@ -10,11 +10,7 @@ def fetch_image(filename):
         f.write(img_data)
 
 images = [
-    "ss1.png","ss2.png","ss3.png",
-    "earntask1.png","earntask2.png","earntask3.png",
-    "detect1.png","detect2.png",
-    "losestreak.png","earnup.png",
-    "mode2.png","open.png","coupon.png"
+    "claim_2_1","claim_2_2","claim_2_3","coupon.png"
 ]
 
 for img in images:
@@ -87,7 +83,7 @@ def checker():
         
 def checker2():
     try:
-        match1 = pyautogui.locateOnScreen('earntask1.png', confidence=0.8)
+        match1 = pyautogui.locateOnScreen('claim_2_1.png', confidence=0.8)
     except Exception as e:
         print(f"Error saat mencari earntask1.png: {e}")
         match1 = None
@@ -95,21 +91,15 @@ def checker2():
     if match1:
         try:
             x, y = pyautogui.center(match1)
-            pyautogui.click(x, y)
+            pyautogui.doubleClick(x, y)
             time.sleep(2)
-            pyautogui.moveTo(225, 30, duration=2)
-            pyautogui.doubleClick(225, 30)
-            time.sleep(1)
-            pyautogui.moveTo(15, 188, duration=2)
-            pyautogui.doubleClick(15, 188)
-            time.sleep(1)
             return True
         except Exception as e:
             print(f"Error saat menjalankan proses match1: {e}")
             return False
 
     try:
-        match2 = pyautogui.locateOnScreen('open.png', confidence=0.8)
+        match2 = pyautogui.locateOnScreen('claim_2_2.png', confidence=0.8)
     except Exception as e:
         print(f"Error saat mencari open.png: {e}")
         match2 = None
@@ -117,7 +107,22 @@ def checker2():
     if match2:
         try:
             x, y = pyautogui.center(match2)
-            pyautogui.click(x, y)
+            pyautogui.doubleClick(x, y)
+            time.sleep(2)
+            return True
+        except Exception as e:
+            print(f"Error saat menjalankan proses match2: {e}")
+            return False
+            
+    try:
+        match3 = pyautogui.locateOnScreen('claim_2_3.png', confidence=0.8)
+    except Exception as e:
+        print(f"Error saat mencari open.png: {e}")
+        match3 = None
+
+    if match2:
+        try:
+            x, y = pyautogui.center(match3)
             time.sleep(2)
             return True
         except Exception as e:
