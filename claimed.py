@@ -98,36 +98,7 @@ def checker2():
             print(f"Error saat menjalankan proses match1: {e}")
             return False
 
-    try:
-        match2 = pyautogui.locateOnScreen('claim_2_2.png', confidence=0.8)
-    except Exception as e:
-        print(f"Error saat mencari open.png: {e}")
-        match2 = None
-
-    if match2:
-        try:
-            x, y = pyautogui.center(match2)
-            pyautogui.doubleClick(x, y)
-            time.sleep(2)
-            return True
-        except Exception as e:
-            print(f"Error saat menjalankan proses match2: {e}")
-            return False
-            
-    try:
-        match3 = pyautogui.locateOnScreen('claim_2_3.png', confidence=0.8)
-    except Exception as e:
-        print(f"Error saat mencari open.png: {e}")
-        match3 = None
-
-    if match2:
-        try:
-            x, y = pyautogui.center(match3)
-            time.sleep(2)
-            return True
-        except Exception as e:
-            print(f"Error saat menjalankan proses match2: {e}")
-            return False
+    
         
 
     print("Tidak ada mode yang cocok.")
@@ -135,50 +106,35 @@ def checker2():
     
 def checker3():
     try:
-        match1 = pyautogui.locateOnScreen('earntask2.png', confidence=0.8)
+        match1 = pyautogui.locateOnScreen('claim_2_2.png', confidence=0.8)
     except Exception as e:
-        print(f"Error saat mencari earntask2.png: {e}")
+        print(f"Error saat mencari open.png: {e}")
         match1 = None
 
     if match1:
         try:
             x, y = pyautogui.center(match1)
-            pyautogui.click(x, y)
+            pyautogui.doubleClick(x, y)
             time.sleep(2)
-            pyautogui.moveTo(225, 30, duration=2)
-            pyautogui.doubleClick(225, 30)
-            time.sleep(1)
-            pyautogui.moveTo(15, 188, duration=2)
-            pyautogui.doubleClick(15, 188)
-            time.sleep(1)
             return True
         except Exception as e:
             print(f"Error saat menjalankan proses match1: {e}")
             return False
-
+            
     try:
-        match2 = pyautogui.locateOnScreen('earntask3.png', confidence=0.8)
+        match2 = pyautogui.locateOnScreen('claim_2_3.png', confidence=0.8)
     except Exception as e:
-        print(f"Error saat mencari earntask3.png: {e}")
+        print(f"Error saat mencari open.png: {e}")
         match2 = None
 
     if match2:
         try:
             x, y = pyautogui.center(match2)
-            pyautogui.click(x, y)
             time.sleep(2)
-            pyautogui.moveTo(225, 30, duration=2)
-            pyautogui.doubleClick(225, 30)
-            time.sleep(1)
-            pyautogui.moveTo(15, 188, duration=2)
-            pyautogui.doubleClick(15, 188)
-            time.sleep(1)
             return True
         except Exception as e:
             print(f"Error saat menjalankan proses match2: {e}")
             return False
-        
-
     print("Tidak ada mode yang cocok.")
     return False       
         
@@ -368,23 +324,15 @@ def modechoose():
     if match2:
         try:
             print("Berhasil match2")
-            pos1 = checker_scroll2(max_scroll=1800, step=250)
-            if pos1 is not None:
-                print(f"Checker ditemukan, lanjut dari posisi scroll {pos1}")
+            if checker2():
+                print("Checker2 berhasil dijalankan.")
+                if checker3():
+                    print("Checker3 berhasil dijalankan dan proses selesai")
+                    pyautogui.hotkey('alt', 'f4') 
+                else:
+                    print("ulang sampai ditemukan")
             else:
-                time.sleep(2)
-                pyautogui.moveTo(481, 174, duration=2)
-                pyautogui.doubleClick(481, 174)
-                time.sleep(1)      
-                
-            time.sleep(2)
-            
-            pos2 = checker_scroll3(max_scroll=3000, step=250)
-            if pos2 is not None:
-                print(f"Checker ditemukan, lanjut dari posisi scroll {pos2}")
-            else:
-                time.sleep(3)
-                pyautogui.hotkey('alt', 'f4')
+                print("ulang sampai ditemukan")
             
             return True
         except Exception as e:
