@@ -16,7 +16,7 @@ images = [
 for img in images:
     fetch_image(img)
 
-def checker_1_1(:
+def checker_1_1():
     try:
         match1 = pyautogui.locateOnScreen('claim_1_1.png', confidence=0.8)
     except Exception as e:
