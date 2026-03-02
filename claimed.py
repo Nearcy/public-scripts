@@ -10,7 +10,7 @@ def fetch_image(filename):
         f.write(img_data)
 
 images = [
-    "claim_2_1","claim_2_2","claim_2_3","coupon.png"
+    "claim_2_1.png","claim_2_2.png","claim_2_3.png","coupon.png"
 ]
 
 for img in images:
