@@ -32,7 +32,7 @@ def checker_1_1():
             print(f"Error saat menjalankan proses match1: {e}")
             return False
             
-def checker_1_2:
+def checker_1_2():
     try:
         match1 = pyautogui.locateOnScreen('claim_1_2.png', confidence=0.8)
     except Exception as e:
