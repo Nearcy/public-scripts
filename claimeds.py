@@ -209,16 +209,22 @@ def modechoose():
     if match1:
         try:
             print("Berhasil match1_1")
-            if checker_1_1():
-                print("Checker_1_1 berhasil")
-                if checker_1_2():
-                    print("Checker_1_2 berhasil")
-                    pyautogui.hotkey('alt', 'f4') 
+            for attempt in range(3):
+                if checker_1_1():
+                    print("Checker_1_1 berhasil")
+                    if checker_1_2():
+                        print("Checker_1_2 berhasil")
+                        pyautogui.hotkey('alt', 'f4')
+                        break
+                    else:
+                        print("Checker_1_2 tetap gagal setelah 3 kali percobaan")
+                        pyautogui.hotkey('alt', 'f4')
+                    break
                 else:
-                    print("Checker_1_1 tidak ditemukan")
-                    pyautogui.hotkey('alt', 'f4') 
+                    print(f"Checker_1_1 gagal (percobaan {attempt+1})")
             else:
-                print("ulang sampai ditemukan")
+                print("Checker_1_1 tetap gagal setelah 3 kali percobaan")
+                pyautogui.hotkey('alt', 'f4')
                 
             return True
         except Exception as e:
