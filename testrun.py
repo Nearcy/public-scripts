@@ -107,11 +107,11 @@ def checker2():
         except Exception as e:
             print(f"Error saat menjalankan proses match1: {e}")
             return False
-
+            
     try:
-        match2 = pyautogui.locateOnScreen('open.png', confidence=0.8)
+        match2 = pyautogui.locateOnScreen('earntask2.png', confidence=0.8)
     except Exception as e:
-        print(f"Error saat mencari open.png: {e}")
+        print(f"Error saat mencari earntask2.png: {e}")
         match2 = None
 
     if match2:
@@ -119,9 +119,32 @@ def checker2():
             x, y = pyautogui.center(match2)
             pyautogui.click(x, y)
             time.sleep(2)
+            pyautogui.moveTo(225, 30, duration=2)
+            pyautogui.doubleClick(225, 30)
+            time.sleep(1)
+            pyautogui.moveTo(15, 188, duration=2)
+            pyautogui.doubleClick(15, 188)
+            time.sleep(1)
             return True
         except Exception as e:
             print(f"Error saat menjalankan proses match2: {e}")
+            return False
+            
+
+    try:
+        match3 = pyautogui.locateOnScreen('open.png', confidence=0.8)
+    except Exception as e:
+        print(f"Error saat mencari open.png: {e}")
+        match3 = None
+
+    if match3:
+        try:
+            x, y = pyautogui.center(match3)
+            pyautogui.click(x, y)
+            time.sleep(2)
+            return True
+        except Exception as e:
+            print(f"Error saat menjalankan proses match3: {e}")
             return False
         
 
