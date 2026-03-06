@@ -20,7 +20,7 @@ from typing import TYPE_CHECKING
 from urllib.parse import quote_plus
 from importlib import resources
 
-PUBLIC_KEYWORDS_URL = "https://raw.githubusercontent.com/Nearcy/public-scripts/refs/heads/main/search_control/keywords_gen_2.txt" #keyword ganti
+PUBLIC_KEYWORDS_URL = "https://raw.githubusercontent.com/Nearcy/public-scripts/refs/heads/main/search_control/keywords_gen_1.txt" #keyword ganti
 def load_keywords():
     try:
         text = requests.get(PUBLIC_KEYWORDS_URL, timeout=5).text
