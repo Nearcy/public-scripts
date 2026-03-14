@@ -14,7 +14,7 @@ images = [
     "earntask1.png","earntask2.png","earntask3.png",
     "detect1.png","detect2.png",
     "losestreak.png","earnup.png",
-    "mode2.png","open.png","coupon.png"
+    "mode2.png","open.png","coupon.png","ss_evo.png"
 ]
 
 for img in images:
@@ -43,7 +43,7 @@ def checker():
             print(f"Error saat menjalankan proses match1: {e}")
             return False
     try:
-        match2 = pyautogui.locateOnScreen('ss2.png', confidence=0.8)
+        match2 = pyautogui.locateOnScreen('ss_evo.png', confidence=0.8)
     except Exception as e:
         print(f"Error saat mencari ss2.png: {e}")
         match2 = None
