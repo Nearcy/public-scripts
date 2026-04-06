@@ -14,7 +14,7 @@ images = [
     "earntask1.png","earntask2.png","earntask3.png", "earntask11.png", "earntask22.png", "earntask33.png",
     "detect1.png","detect2.png",
     "losestreak.png","earnup.png",
-    "mode2.png","open.png","coupon.png","ss_evo.png"
+    "mode2.png","mode22.png","open.png","coupon.png","ss_evo.png"
 ]
 
 for img in images:
@@ -471,6 +471,38 @@ def modechoose():
             return True
         except Exception as e:
             print(f"Error saat menjalankan proses match2: {e}")
+            return False
+
+    try:
+        match3 = pyautogui.locateOnScreen('mode22.png', confidence=0.8)
+    except Exception as e:
+        print(f"Error saat mencari mode22.png: {e}")
+        match3 = None
+
+    if match3:
+        try:
+            print("Berhasil mode22")
+            pos1 = checker_scroll2(max_scroll=1800, step=250)
+            if pos1 is not None:
+                print(f"Checker ditemukan, lanjut dari posisi scroll {pos1}")
+            else:
+                time.sleep(2)
+                pyautogui.moveTo(481, 174, duration=2)
+                pyautogui.doubleClick(481, 174)
+                time.sleep(1)      
+                
+            time.sleep(2)
+            
+            pos2 = checker_scroll3(max_scroll=3000, step=250)
+            if pos2 is not None:
+                print(f"Checker ditemukan, lanjut dari posisi scroll {pos2}")
+            else:
+                time.sleep(3)
+                pyautogui.hotkey('alt', 'f4')
+            
+            return True
+        except Exception as e:
+            print(f"Error saat menjalankan proses match3: {e}")
             return False
         
 
