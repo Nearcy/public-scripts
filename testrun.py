@@ -11,7 +11,7 @@ def fetch_image(filename):
 
 images = [
     "ss1.png","ss2.png","ss3.png",
-    "earntask1.png","earntask2.png","earntask3.png",
+    "earntask1.png","earntask2.png","earntask3.png", "earntask11.png", "earntask22.png", "earntask33.png",
     "detect1.png","detect2.png",
     "losestreak.png","earnup.png",
     "mode2.png","open.png","coupon.png","ss_evo.png"
@@ -129,7 +129,28 @@ def checker2():
         except Exception as e:
             print(f"Error saat menjalankan proses match2: {e}")
             return False
-            
+
+    try:
+        match4 = pyautogui.locateOnScreen('earntask11.png', confidence=0.8)
+    except Exception as e:
+        print(f"Error saat mencari earntask11.png: {e}")
+        match4 = None
+
+    if match4:
+        try:
+            x, y = pyautogui.center(match4)
+            pyautogui.click(x, y)
+            time.sleep(2)
+            pyautogui.moveTo(225, 30, duration=2)
+            pyautogui.doubleClick(225, 30)
+            time.sleep(1)
+            pyautogui.moveTo(15, 188, duration=2)
+            pyautogui.doubleClick(15, 188)
+            time.sleep(1)
+            return True
+        except Exception as e:
+            print(f"Error saat menjalankan proses match4: {e}")
+            return False
 
     try:
         match3 = pyautogui.locateOnScreen('open.png', confidence=0.8)
@@ -195,8 +216,51 @@ def checker3():
         except Exception as e:
             print(f"Error saat menjalankan proses match2: {e}")
             return False
-        
 
+    try:
+        match3 = pyautogui.locateOnScreen('earntask22.png', confidence=0.8)
+    except Exception as e:
+        print(f"Error saat mencari earntask22.png: {e}")
+        match3 = None
+
+    if match3:
+        try:
+            x, y = pyautogui.center(match3)
+            pyautogui.click(x, y)
+            time.sleep(2)
+            pyautogui.moveTo(225, 30, duration=2)
+            pyautogui.doubleClick(225, 30)
+            time.sleep(1)
+            pyautogui.moveTo(15, 188, duration=2)
+            pyautogui.doubleClick(15, 188)
+            time.sleep(1)
+            return True
+        except Exception as e:
+            print(f"Error saat menjalankan proses match3: {e}")
+            return False
+
+    try:
+        match4 = pyautogui.locateOnScreen('earntask33.png', confidence=0.8)
+    except Exception as e:
+        print(f"Error saat mencari earntask33.png: {e}")
+        match4 = None
+
+    if match4:
+        try:
+            x, y = pyautogui.center(match4)
+            pyautogui.click(x, y)
+            time.sleep(2)
+            pyautogui.moveTo(225, 30, duration=2)
+            pyautogui.doubleClick(225, 30)
+            time.sleep(1)
+            pyautogui.moveTo(15, 188, duration=2)
+            pyautogui.doubleClick(15, 188)
+            time.sleep(1)
+            return True
+        except Exception as e:
+            print(f"Error saat menjalankan proses match4: {e}")
+            return False
+        
     print("Tidak ada mode yang cocok.")
     return False       
         
