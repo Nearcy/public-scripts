@@ -44,13 +44,13 @@ URL = 'https://www.bing.com/search?form=QBRE&q='
 MOBILE_AGENT = (
     'Mozilla/5.0 (Linux; Android 14; Pixel 6 Build/AP2A.240605.024) '
     'AppleWebKit/537.36 (KHTML, like Gecko) '
-    'Chrome/126.0.0.0 Mobile Safari/537.36 Edge/121.0.2277.138'
+    'Chrome/146.0.0.0 Mobile Safari/537.36 Edge/121.0.2277.138'
 )
 
 DESKTOP_AGENT = (
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
     'AppleWebKit/537.36 (KHTML, like Gecko) '
-    'Chrome/145.0.0.0 Safari/537.36 Edge/126.0.0.0'
+    'Chrome/146.0.0.0 Safari/537.36 Edge/126.0.0.0'
 )
 
 
