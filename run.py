@@ -16,24 +16,15 @@ def run_cmd(cmd, name):
 
 # load profiles
 with open("acc.json", encoding="utf-8") as f:
-    profiles = json.load(f)["profiles"]
+    profiles_data = json.load(f)["profiles"]
+
+profiles = [p["name"] for p in profiles_data]
 
 # RUN 1
 cmd1 = [
     "uv", "run", "bing-rewards", "-b",
     "-d", "-c22",
     "--exe", "chrome",
-    "--exit",
-    "--profile",
-    *profiles
-]
-
-# RUN 2
-cmd2 = [
-    "uv", "run", "bing-rewards", "-b",
-    "--count=10",
-    "--exe", "chrome",
-    "--exit",
     "--profile",
     *profiles
 ]
@@ -48,15 +39,5 @@ cmd3 = [
     *profiles
 ]
 
-
-#1
-#run_cmd(cmd2, "RUN 2 (Mobile)")
-#2
-#run_cmd(cmd2, "RUN 2 (Mobile)")
-#3
-#run_cmd(cmd2, "RUN 2 (Mobile)")
-#4
-#run_cmd(cmd2, "RUN 2 (Mobile)")
-#5  
 run_cmd(cmd1, "RUN 1 (Desktop)")
 run_cmd(cmd3, "RUN 1 (Desktop)")
