@@ -413,6 +413,12 @@ def move_and_click(start_x, start_y, end_x, end_y, duration=2):
     print(f"Mouse dipindahkan ke ({end_x},{end_y}) dan double-click dilakukan.")
 
 def modechoose():
+    try:
+        match2 = pyautogui.locateOnScreen('earntask2.png', confidence=0.8)
+    except Exception as e:
+        print(f"Error saat mencari earntask2.png: {e}")
+        match2 = None
+        
     if match2:
         try:
             print("Berhasil match2")
