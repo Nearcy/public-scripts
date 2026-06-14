@@ -413,40 +413,6 @@ def move_and_click(start_x, start_y, end_x, end_y, duration=2):
     print(f"Mouse dipindahkan ke ({end_x},{end_y}) dan double-click dilakukan.")
 
 def modechoose():
-    try:
-        match1 = pyautogui.locateOnScreen('detect2.png', confidence=0.8)
-    except Exception as e:
-        print(f"Error saat mencari detect2.png: {e}")
-        match1 = None
-
-    if match1:
-        try:
-            time.sleep(10)
-            result = validation1()
-            print(f"Hasil validation1: {result}")
-            result2 = earnup()
-            print(f"Hasil earnup: {result2}")
-            result3 = coupon()
-            print(f"Hasil earnup: {result3}")
-            
-            pos = checker_scroll(max_scroll=3000, step=250)
-            if pos is not None:
-                print(f"Checker ditemukan, lanjut dari posisi scroll {pos}")
-            else:
-                time.sleep(3)
-                pyautogui.hotkey('alt', 'f4')
-                
-            return True
-        except Exception as e:
-            print(f"Error saat menjalankan proses match1: {e}")
-            return False
-
-    try:
-        match2 = pyautogui.locateOnScreen('mode2.png', confidence=0.8)
-    except Exception as e:
-        print(f"Error saat mencari mode2.png: {e}")
-        match2 = None
-
     if match2:
         try:
             print("Berhasil match2")
