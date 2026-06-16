@@ -396,25 +396,34 @@ def move_and_click(start_x, start_y, end_x, end_y, duration=2):
     print(f"Mouse dipindahkan ke ({end_x},{end_y}) dan double-click dilakukan.")
 
 def modechoose():
-    print("Berhasil mode22")
-    pos1 = checker_scroll2(max_scroll=1800, step=250)
-    if pos1 is not None:
-        print(f"Checker ditemukan, lanjut dari posisi scroll {pos1}")
-    else:
-        time.sleep(2)
-        pyautogui.moveTo(481, 174, duration=2)
-        pyautogui.doubleClick(481, 174)
-        time.sleep(1)      
-                
-    time.sleep(2)
-            
-    pos2 = checker_scroll3(max_scroll=3000, step=250)
-    if pos2 is not None:
-        print(f"Checker ditemukan, lanjut dari posisi scroll {pos2}")
-    else:
-        time.sleep(3)
-        pyautogui.hotkey('alt', 'f4')
+    try:
+        print("Berhasil mode22")
 
+        pos1 = checker_scroll2(max_scroll=1800, step=250)
+
+        if pos1 is not None:
+            print(f"Checker ditemukan, lanjut dari posisi scroll {pos1}")
+        else:
+            time.sleep(2)
+            pyautogui.moveTo(481, 174, duration=2)
+            pyautogui.doubleClick(481, 174)
+            time.sleep(1)
+
+        time.sleep(2)
+
+        pos2 = checker_scroll3(max_scroll=3000, step=250)
+
+        if pos2 is not None:
+            print(f"Checker ditemukan, lanjut dari posisi scroll {pos2}")
+        else:
+            time.sleep(3)
+            pyautogui.hotkey('alt', 'f4')
+
+        return True   # <- WAJIB
+
+    except Exception as e:
+        print(f"Error saat menjalankan modechoose: {e}")
+        return False
         
         
 def run_sequence():
