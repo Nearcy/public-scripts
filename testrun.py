@@ -152,23 +152,6 @@ def checker2():
             print(f"Error saat menjalankan proses match4: {e}")
             return False
 
-    try:
-        match3 = pyautogui.locateOnScreen('open.png', confidence=0.8)
-    except Exception as e:
-        print(f"Error saat mencari open.png: {e}")
-        match3 = None
-
-    if match3:
-        try:
-            x, y = pyautogui.center(match3)
-            pyautogui.click(x, y)
-            time.sleep(2)
-            return True
-        except Exception as e:
-            print(f"Error saat menjalankan proses match3: {e}")
-            return False
-        
-
     print("Tidak ada mode yang cocok.")
     return False      
     
