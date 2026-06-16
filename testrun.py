@@ -413,73 +413,24 @@ def move_and_click(start_x, start_y, end_x, end_y, duration=2):
     print(f"Mouse dipindahkan ke ({end_x},{end_y}) dan double-click dilakukan.")
 
 def modechoose():
-    try:
-        match2 = pyautogui.locateOnScreen('earntask2.png', confidence=0.8)
-    except Exception as e:
-        print(f"Error saat mencari earntask2.png: {e}")
-        match2 = None
-        
-    if match2:
-        try:
-            print("Berhasil match2")
-            pos1 = checker_scroll2(max_scroll=1800, step=250)
-            if pos1 is not None:
-                print(f"Checker ditemukan, lanjut dari posisi scroll {pos1}")
-            else:
-                time.sleep(2)
-                pyautogui.moveTo(481, 174, duration=2)
-                pyautogui.doubleClick(481, 174)
-                time.sleep(1)      
+    print("Berhasil mode22")
+    pos1 = checker_scroll2(max_scroll=1800, step=250)
+    if pos1 is not None:
+        print(f"Checker ditemukan, lanjut dari posisi scroll {pos1}")
+    else:
+        time.sleep(2)
+        pyautogui.moveTo(481, 174, duration=2)
+        pyautogui.doubleClick(481, 174)
+        time.sleep(1)      
                 
-            time.sleep(2)
+    time.sleep(2)
             
-            pos2 = checker_scroll3(max_scroll=3000, step=250)
-            if pos2 is not None:
-                print(f"Checker ditemukan, lanjut dari posisi scroll {pos2}")
-            else:
-                time.sleep(3)
-                pyautogui.hotkey('alt', 'f4')
-            
-            return True
-        except Exception as e:
-            print(f"Error saat menjalankan proses match2: {e}")
-            return False
-
-    try:
-        match3 = pyautogui.locateOnScreen('mode22.png', confidence=0.8)
-    except Exception as e:
-        print(f"Error saat mencari mode22.png: {e}")
-        match3 = None
-
-    if match3:
-        try:
-            print("Berhasil mode22")
-            pos1 = checker_scroll2(max_scroll=1800, step=250)
-            if pos1 is not None:
-                print(f"Checker ditemukan, lanjut dari posisi scroll {pos1}")
-            else:
-                time.sleep(2)
-                pyautogui.moveTo(481, 174, duration=2)
-                pyautogui.doubleClick(481, 174)
-                time.sleep(1)      
-                
-            time.sleep(2)
-            
-            pos2 = checker_scroll3(max_scroll=3000, step=250)
-            if pos2 is not None:
-                print(f"Checker ditemukan, lanjut dari posisi scroll {pos2}")
-            else:
-                time.sleep(3)
-                pyautogui.hotkey('alt', 'f4')
-            
-            return True
-        except Exception as e:
-            print(f"Error saat menjalankan proses match3: {e}")
-            return False
-        
-
-    print("Tidak ada mode yang cocok.")
-    return False
+    pos2 = checker_scroll3(max_scroll=3000, step=250)
+    if pos2 is not None:
+        print(f"Checker ditemukan, lanjut dari posisi scroll {pos2}")
+    else:
+        time.sleep(3)
+        pyautogui.hotkey('alt', 'f4')
 
         
         
